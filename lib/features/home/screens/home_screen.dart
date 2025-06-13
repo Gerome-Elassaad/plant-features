@@ -1,10 +1,12 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/core/providers/theme_provider.dart';
-import 'package:arco/features/diagnosis/screens/diagnosis_screen.dart';
-import 'package:arco/features/assistant/screens/chat_screen.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/core/providers/theme_provider.dart';
+import 'package:aspargo/features/diagnosis/screens/diagnosis_screen.dart';
+import 'package:aspargo/features/assistant/screens/chat_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -79,7 +81,7 @@ class _HomeView extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Arco'),
+        title: const Text('aspargo'),
         actions: [
           Consumer<ThemeProvider>(
             builder: (context, themeProvider, _) {
@@ -131,7 +133,7 @@ class _HomeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Welcome to Arco',
+                        'Welcome to aspargo',
                         style: AppTheme.displaySmall.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -276,6 +278,8 @@ class _FeatureCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
+              // ignore: duplicate_ignore
+              // ignore: deprecated_member_use
               color: color.withOpacity(0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
@@ -318,6 +322,8 @@ class _FeatureCard extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios,
               size: 16,
+              // ignore: duplicate_ignore
+              // ignore: deprecated_member_use
               color: theme.textTheme.bodyMedium?.color?.withOpacity(0.5),
             ),
           ],

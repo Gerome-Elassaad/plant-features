@@ -1,5 +1,10 @@
 class ApiConstants {
-  static const String baseUrl = 'http://localhost:3000/api';
+  // Use String.fromEnvironment to allow overriding via --dart-define
+  // Default to localhost for development if BASE_URL is not provided.
+  static const String baseUrl = String.fromEnvironment(
+    'BASE_URL',
+    defaultValue: 'http://localhost:3000/api',
+  );
   
   // API Endpoints
   static const String diagnosis = '/diagnosis';

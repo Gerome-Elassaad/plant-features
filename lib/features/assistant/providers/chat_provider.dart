@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:arco/core/services/api_service.dart';
-import 'package:arco/core/constants/api_constants.dart';
-import 'package:arco/core/exceptions/app_exceptions.dart';
-import 'package:arco/features/assistant/models/chat_model.dart';
+import 'package:aspargo/core/services/api_service.dart';
+import 'package:aspargo/core/constants/api_constants.dart';
+import 'package:aspargo/core/exceptions/app_execptions.dart';
+import 'package:aspargo/features/assistant/models/chat_model.dart';
 
 enum ChatState { idle, loading, error }
 
@@ -181,7 +181,7 @@ class ChatProvider extends ChangeNotifier {
       _handleError('Network error: ${e.message}');
     } on ServerException catch (e) {
       _handleError('Server error: ${e.message}');
-    } on RateLimitException catch (e) {
+    } on RateLimitException {
       _handleError('Too many messages. Please wait a moment.');
     } catch (e) {
       _handleError('An unexpected error occurred');

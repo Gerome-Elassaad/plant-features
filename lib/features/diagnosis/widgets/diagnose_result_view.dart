@@ -1,9 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/features/diagnosis/models/diagnosis_model.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/features/diagnosis/models/diagnosis_model.dart';
 
 class DiagnosisResultView extends StatelessWidget {
   final DiagnosisResponse result;
@@ -15,7 +16,7 @@ class DiagnosisResultView extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    Theme.of(context);
     final data = result.data;
     
     return SafeArea(
@@ -53,7 +54,7 @@ class DiagnosisResultView extends StatelessWidget {
                   delay: Duration(milliseconds: 400 + (index * 100)),
                   child: _buildPlantSuggestionCard(context, suggestion, index == 0),
                 );
-              }).toList(),
+              }),
               
               // Health Assessment
               if (data.healthAssessment != null) ...[
@@ -92,7 +93,7 @@ class DiagnosisResultView extends StatelessWidget {
                     delay: const Duration(milliseconds: 900),
                     child: _buildDiseaseCard(context, disease),
                   );
-                }).toList(),
+                }),
               ],
             ],
           ],
@@ -339,7 +340,7 @@ class DiagnosisResultView extends StatelessWidget {
   }
   
   Widget _buildDiseaseCard(BuildContext context, DiseaseSuggestion disease) {
-    final theme = Theme.of(context);
+    Theme.of(context);
     final confidence = (disease.probability * 100).toStringAsFixed(1);
     
     return Card(

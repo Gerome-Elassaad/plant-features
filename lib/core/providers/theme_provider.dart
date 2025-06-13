@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:arco/core/services/storage_service.dart';
+import 'package:aspargo/core/services/storage_service.dart';
 
 class ThemeProvider extends ChangeNotifier {
   static const String _themeKey = 'theme_mode';

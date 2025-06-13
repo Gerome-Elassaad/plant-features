@@ -2,11 +2,11 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:arco/core/services/api_service.dart';
-import 'package:arco/core/constants/api_constants.dart';
-import 'package:arco/core/exceptions/app_exceptions.dart';
-import 'package:arco/features/diagnosis/models/diagnosis_model.dart';
-import 'package:arco/features/diagnosis/services/image_service.dart';
+import 'package:aspargo/core/services/api_service.dart';
+import 'package:aspargo/core/constants/api_constants.dart';
+import 'package:aspargo/core/exceptions/app_execptions.dart';
+import 'package:aspargo/features/diagnosis/models/diagnosis_model.dart';
+import 'package:aspargo/features/diagnosis/services/image_service.dart';
 
 enum DiagnosisState {
   idle,
@@ -37,6 +37,12 @@ class DiagnosisProvider extends ChangeNotifier {
   double _uploadProgress = 0.0;
   double get uploadProgress => _uploadProgress;
   
+  bool _similarImages = false; // Default value
+  bool get similarImages => _similarImages;
+  
+  String _plantLanguage = 'en'; // Default value
+  String get plantLanguage => _plantLanguage;
+  
   List<String> _selectedModifiers = ['common_names', 'url'];
   List<String> get selectedModifiers => _selectedModifiers;
   
@@ -47,6 +53,16 @@ class DiagnosisProvider extends ChangeNotifier {
   
   void setModifiers(List<String> modifiers) {
     _selectedModifiers = modifiers;
+    notifyListeners();
+  }
+  
+  void setSimilarImages(bool value) {
+    _similarImages = value;
+    notifyListeners();
+  }
+  
+  void setPlantLanguage(String languageCode) {
+    _plantLanguage = languageCode;
     notifyListeners();
   }
   
@@ -110,8 +126,8 @@ class DiagnosisProvider extends ChangeNotifier {
           filename: 'plant_image.jpg',
         ),
         'plant_details': _selectedModifiers,
-        'similar_images': false,
-        'plant_language': 'en',
+        'similar_images': _similarImages,
+        'plant_language': _plantLanguage,
       });
       
       // Upload and analyze
@@ -147,7 +163,7 @@ class DiagnosisProvider extends ChangeNotifier {
     } on ServerException catch (e) {
       _errorMessage = 'Server error: ${e.message}';
       _setState(DiagnosisState.error);
-    } on RateLimitException catch (e) {
+    } on RateLimitException {
       _errorMessage = 'Too many requests. Please try again later.';
       _setState(DiagnosisState.error);
     } catch (e) {

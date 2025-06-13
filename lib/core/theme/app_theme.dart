@@ -99,12 +99,12 @@ class AppTheme {
         secondary: secondaryColor,
         tertiary: accentColor,
         error: errorColor,
-        background: lightBackground,
-        surface: lightSurface,
+        surface: lightSurface, // Replaced background with surface
+        // background: lightBackground, // Removed deprecated background
         onPrimary: Colors.white,
         onSecondary: Colors.white,
-        onBackground: lightTextPrimary,
-        onSurface: lightTextPrimary,
+        onSurface: lightTextPrimary, // Replaced onBackground with onSurface
+        // onBackground: lightTextPrimary, // Removed deprecated onBackground
       ),
       scaffoldBackgroundColor: lightBackground,
       appBarTheme: AppBarTheme(
@@ -142,10 +142,10 @@ class AppTheme {
           textStyle: labelLarge,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: lightSurface,
         elevation: 2,
-        shape: RoundedRectangleBorder(
+        shape: RoundedRectangleBorder( // Removed const
           borderRadius: BorderRadius.circular(16),
         ),
       ),
@@ -196,12 +196,12 @@ class AppTheme {
         secondary: secondaryColor,
         tertiary: accentColor,
         error: errorColor,
-        background: darkBackground,
-        surface: darkSurface,
+        surface: darkSurface, // Replaced background with surface
+        // background: darkBackground, // Removed deprecated background
         onPrimary: Colors.white,
         onSecondary: Colors.white,
-        onBackground: darkTextPrimary,
-        onSurface: darkTextPrimary,
+        onSurface: darkTextPrimary, // Replaced onBackground with onSurface
+        // onBackground: darkTextPrimary, // Removed deprecated onBackground
       ),
       scaffoldBackgroundColor: darkBackground,
       appBarTheme: AppBarTheme(
@@ -239,10 +239,10 @@ class AppTheme {
           textStyle: labelLarge,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: darkSurface,
         elevation: 4,
-        shape: RoundedRectangleBorder(
+        shape: RoundedRectangleBorder( // Removed const for consistency, though no error reported here
           borderRadius: BorderRadius.circular(16),
         ),
       ),

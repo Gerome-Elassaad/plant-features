@@ -1,13 +1,12 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/features/diagnosis/providers/diagnosis_provider.dart';
-import 'package:arco/features/diagnosis/widgets/diagnosis_result_view.dart';
-import 'package:arco/features/diagnosis/widgets/image_selection_card.dart';
-import 'package:arco/core/widgets/loading_overlay.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/features/diagnosis/providers/diagnosis_provider.dart';
+import 'package:aspargo/features/diagnosis/widgets/image_selection_card.dart';
+import 'package:aspargo/features/diagnosis/widgets/loading_overlay.dart';
+import 'package:aspargo/features/diagnosis/widgets/diagnose_result_view.dart'; // Corrected path
 
 class DiagnosisScreen extends StatelessWidget {
   const DiagnosisScreen({super.key});
@@ -133,6 +132,7 @@ class DiagnosisScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 16),
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: AppTheme.errorColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: AppTheme.errorColor),
@@ -221,6 +221,7 @@ class DiagnosisScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color: Colors.black.withOpacity(0.1),
                   blurRadius: 10,
                   offset: const Offset(0, 5),

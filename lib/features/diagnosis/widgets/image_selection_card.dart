@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:arco/core/theme/app_theme.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
 
 class ImageSelectionCard extends StatelessWidget {
   final IconData icon;
@@ -33,7 +33,7 @@ class ImageSelectionCard extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: AppTheme.primaryColor.withOpacity(0.05),
+              color: AppTheme.primaryColor.withAlpha((255 * 0.05).round()),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -44,7 +44,7 @@ class ImageSelectionCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppTheme.primaryColor.withOpacity(0.1),
+                color: AppTheme.primaryColor.withAlpha((255 * 0.1).round()),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -66,7 +66,7 @@ class ImageSelectionCard extends StatelessWidget {
                   Text(
                     description,
                     style: AppTheme.bodyMedium.copyWith(
-                      color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
+                      color: theme.textTheme.bodyMedium?.color?.withAlpha((255 * 0.7).round()),
                     ),
                   ),
                 ],
@@ -75,7 +75,7 @@ class ImageSelectionCard extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios,
               size: 16,
-              color: theme.textTheme.bodyMedium?.color?.withOpacity(0.5),
+              color: theme.textTheme.bodyMedium?.color?.withAlpha((255 * 0.5).round()),
             ),
           ],
         ),

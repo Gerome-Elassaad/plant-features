@@ -21,10 +21,30 @@ const chatValidation = [
     .isLength({ min: 1, max: 2000 }).withMessage('Message must be between 1 and 2000 characters'),
   body('context')
     .optional()
-    .isArray().withMessage('Context must be an array')
-    .custom((value) => {
-      if (value && value.length > 10) {
-        throw new Error('Context cannot contain more than 10 messages');
+    .isArray({ max: 5 }).withMessage('Context cannot contain more than 5 messages')
+    // .custom((value) => { // Replaced custom validation with isArray({ max: 5 })
+    //   if (value && value.length > 10) { 
+    //     throw new Error('Context cannot contain more than 10 messages');
+    //   }
+    //   return true;
+    // }), // Retaining .optional() so it's not required
+    // Ensure each item in the array is an object with specific properties if needed,
+    // but for now, just limiting length.
+    .custom((value) => { // Keep custom validation to ensure it's an array of objects if that's intended.
+                         // For now, the primary goal is to limit length.
+                         // If further validation of array elements is needed, it can be added here.
+      if (value) { // value is already known to be an array due to .isArray()
+        if (value.length > 5) { // This check is redundant if isArray({max:5}) works as expected,
+                                // but kept for explicit clarity or if isArray({max:5}) isn't supported in this version.
+                                // express-validator's isArray() can take options like { min, max }.
+          throw new Error('Context cannot contain more than 5 messages');
+        }
+        // Optionally, validate structure of each message in context:
+        // for (const item of value) {
+        //   if (typeof item !== 'object' || item === null || !item.role || !item.content) {
+        //     throw new Error('Each context message must be an object with role and content');
+        //   }
+        // }
       }
       return true;
     }),

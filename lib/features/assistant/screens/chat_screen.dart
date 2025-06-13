@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/features/assistant/providers/chat_provider.dart';
-import 'package:arco/features/assistant/widgets/chat_message_bubble.dart';
-import 'package:arco/features/assistant/widgets/chat_input_field.dart';
-import 'package:arco/features/assistant/widgets/suggestion_chips.dart';
-import 'package:arco/features/assistant/widgets/typing_indicator.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/features/assistant/providers/chat_provider.dart';
+import 'package:aspargo/features/assistant/widgets/chat_message_bubble.dart';
+import 'package:aspargo/features/assistant/widgets/chat_input_field.dart';
+import 'package:aspargo/features/assistant/widgets/suggestion_chips.dart';
+import 'package:aspargo/features/assistant/widgets/typing_indicator.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -38,7 +38,7 @@ class _ChatScreenState extends State<ChatScreen> {
   
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    Theme.of(context);
     
     return Scaffold(
       appBar: AppBar(
@@ -59,7 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             children: [
                               Text(lang.name),
                               if (lang.code == provider.selectedLanguage)
-                                Icon(
+                                const Icon(
                                   Icons.check,
                                   size: 16,
                                   color: AppTheme.primaryColor,
@@ -95,10 +95,10 @@ class _ChatScreenState extends State<ChatScreen> {
                             Navigator.pop(context);
                             provider.clearConversation();
                           },
-                          child: const Text('Clear'),
                           style: TextButton.styleFrom(
                             foregroundColor: AppTheme.errorColor,
                           ),
+                          child: const Text('Clear'),
                         ),
                       ],
                     ),
@@ -203,10 +203,10 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Container(
               padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
-                color: AppTheme.primaryColor.withOpacity(0.1),
+                color: AppTheme.primaryColor.withAlpha((255 * 0.1).round()),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.chat,
                 size: 64,
                 color: AppTheme.primaryColor,
@@ -220,7 +220,7 @@ class _ChatScreenState extends State<ChatScreen> {
             duration: const Duration(milliseconds: 600),
             delay: const Duration(milliseconds: 200),
             child: Text(
-              'Welcome to Arco Assistant!',
+              'Welcome to aspargo Assistant!',
               style: AppTheme.displaySmall,
               textAlign: TextAlign.center,
             ),
@@ -234,7 +234,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Text(
               'I\'m here to help you with all your gardening and plant care questions. Ask me anything!',
               style: AppTheme.bodyLarge.copyWith(
-                color: theme.textTheme.bodyLarge?.color?.withOpacity(0.7),
+                color: theme.textTheme.bodyLarge?.color?.withAlpha((255 * 0.7).round()),
               ),
               textAlign: TextAlign.center,
             ),
@@ -261,7 +261,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     provider.sendMessage(suggestion);
                     _textController.clear();
                   },
-                )).toList(),
+                )),
               ],
             ),
           ),
@@ -286,7 +286,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           child: Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.lightbulb_outline,
                 color: AppTheme.secondaryColor,
                 size: 20,
@@ -301,7 +301,7 @@ class _ChatScreenState extends State<ChatScreen> {
               Icon(
                 Icons.arrow_forward_ios,
                 size: 14,
-                color: theme.textTheme.bodyMedium?.color?.withOpacity(0.5),
+                color: theme.textTheme.bodyMedium?.color?.withAlpha((255 * 0.5).round()),
               ),
             ],
           ),

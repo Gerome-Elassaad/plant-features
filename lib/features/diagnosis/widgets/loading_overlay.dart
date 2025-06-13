@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:arco/core/theme/app_theme.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
 
 class LoadingOverlay extends StatelessWidget {
   final String message;
@@ -25,11 +25,11 @@ class LoadingOverlay extends StatelessWidget {
           decoration: BoxDecoration(
             color: theme.cardTheme.color,
             borderRadius: BorderRadius.circular(16),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: Color.fromRGBO(0, 0, 0, 0.2),
                 blurRadius: 20,
-                offset: const Offset(0, 10),
+                offset: Offset(0, 10),
               ),
             ],
           ),
@@ -46,7 +46,7 @@ class LoadingOverlay extends StatelessWidget {
                         value: progress,
                         strokeWidth: 6,
                         backgroundColor: theme.dividerColor,
-                        valueColor: AlwaysStoppedAnimation<Color>(
+                        valueColor: const AlwaysStoppedAnimation<Color>(
                           AppTheme.primaryColor,
                         ),
                       ),
@@ -62,7 +62,7 @@ class LoadingOverlay extends StatelessWidget {
                   ],
                 )
               else
-                SpinKitDoubleBounce(
+                const SpinKitDoubleBounce(
                   color: AppTheme.primaryColor,
                   size: 60,
                 ),

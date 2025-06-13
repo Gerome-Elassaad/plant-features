@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:arco/core/constants/api_constants.dart';
-import 'package:arco/core/exceptions/app_exceptions.dart';
+import 'package:aspargo/core/constants/api_constants.dart';
+import 'package:aspargo/core/exceptions/app_execptions.dart'; // Corrected path and reflects filename typo
 
 class ApiService {
   static final ApiService instance = ApiService._internal();
@@ -16,7 +17,7 @@ class ApiService {
   void init() {
     _cacheOptions = CacheOptions(
       store: MemCacheStore(),
-      policy: CachePolicy.requestFirst,
+      policy: CachePolicy.refreshForceCache, // Changed from requestFirst
       maxStale: const Duration(minutes: 5),
       priority: CachePriority.normal,
       cipher: null,
@@ -204,10 +205,18 @@ class ApiService {
 class _ErrorInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    // Log error details
-    print('API Error: ${err.message}');
-    print('API Error Type: ${err.type}');
-    print('API Error Response: ${err.response?.data}');
+    // Log error details only if logging is enabled
+    if (ApiConstants.enableLogging) {
+      if (kDebugMode) {
+        print('API Error: ${err.message}');
+      }
+      if (kDebugMode) {
+        print('API Error Type: ${err.type}');
+      }
+      if (kDebugMode) {
+        print('API Error Response: ${err.response?.data}');
+      }
+    }
     
     handler.next(err);
   }

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/features/assistant/models/chat_model.dart';
+import 'package:markdown_widget/markdown_widget.dart'; // Changed import
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/features/assistant/models/chat_model.dart'; // Assuming this model is okay here, or should be a diagnosis-specific one
 import 'package:intl/intl.dart';
 
 class ChatMessageBubble extends StatelessWidget {
   final ChatMessage message;
   final Function(String)? onSuggestionTap;
-  
+
   const ChatMessageBubble({
     super.key,
     required this.message,
     this.onSuggestionTap,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isUser = message.role == MessageRole.user;
     final isDark = theme.brightness == Brightness.dark;
-    
+
     return Padding(
       padding: EdgeInsets.only(
         left: isUser ? 48 : 0,
@@ -40,10 +40,10 @@ class ChatMessageBubble extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: AppTheme.primaryColor.withOpacity(0.1),
+                      color: AppTheme.primaryColor.withAlpha((255 * 0.1).round()),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.eco,
                       size: 16,
                       color: AppTheme.primaryColor,
@@ -51,9 +51,9 @@ class ChatMessageBubble extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    'Arco Assistant',
+                    'aspargo Assistant', // Consider if this should be different for diagnosis
                     style: AppTheme.labelSmall.copyWith(
-                      color: theme.textTheme.labelSmall?.color?.withOpacity(0.7),
+                      color: theme.textTheme.labelSmall?.color?.withAlpha((255 * 0.7).round()),
                     ),
                   ),
                 ],
@@ -65,9 +65,9 @@ class ChatMessageBubble extends StatelessWidget {
               HapticFeedback.lightImpact();
               Clipboard.setData(ClipboardData(text: message.content));
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('Message copied to clipboard'),
-                  duration: const Duration(seconds: 2),
+                const SnackBar(
+                  content: Text('Message copied to clipboard'),
+                  duration: Duration(seconds: 2),
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: AppTheme.successColor,
                 ),
@@ -84,11 +84,11 @@ class ChatMessageBubble extends StatelessWidget {
                     backGroundColor: isUser
                         ? AppTheme.primaryColor
                         : isDark
-                            ? theme.cardTheme.color
+                            ? theme.cardTheme.color ?? AppTheme.darkSurface
                             : Colors.grey.shade100,
                     child: Container(
-                      constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width * 0.75,
+                      constraints: const BoxConstraints(
+                        maxWidth: 0.75, // MediaQuery.of(context).size.width cannot be const
                       ),
                       child: isUser
                           ? Text(
@@ -97,47 +97,62 @@ class ChatMessageBubble extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             )
-                          : MarkdownBody(
+                          : MarkdownWidget(
                               data: message.content,
-                              styleSheet: MarkdownStyleSheet(
-                                p: AppTheme.bodyMedium.copyWith(
-                                  color: isDark ? theme.textTheme.bodyMedium?.color : Colors.black87,
-                                ),
-                                h1: AppTheme.headlineLarge.copyWith(
-                                  color: isDark ? theme.textTheme.headlineLarge?.color : Colors.black87,
-                                ),
-                                h2: AppTheme.headlineMedium.copyWith(
-                                  color: isDark ? theme.textTheme.headlineMedium?.color : Colors.black87,
-                                ),
-                                h3: AppTheme.headlineSmall.copyWith(
-                                  color: isDark ? theme.textTheme.headlineSmall?.color : Colors.black87,
-                                ),
-                                strong: const TextStyle(fontWeight: FontWeight.bold),
-                                em: const TextStyle(fontStyle: FontStyle.italic),
-                                code: AppTheme.bodySmall.copyWith(
-                                  fontFamily: 'monospace',
-                                  backgroundColor: isDark
-                                      ? Colors.grey.shade800
-                                      : Colors.grey.shade200,
-                                ),
-                                codeblockDecoration: BoxDecoration(
-                                  color: isDark
-                                      ? Colors.grey.shade800
-                                      : Colors.grey.shade200,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                blockquote: AppTheme.bodyMedium.copyWith(
-                                  color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
-                                ),
-                                listBullet: AppTheme.bodyMedium.copyWith(
-                                  color: isDark ? theme.textTheme.bodyMedium?.color : Colors.black87,
-                                ),
+                              config: MarkdownConfig(
+                                configs: [
+                                  LinkConfig(
+                                    onTap: (url) {
+                                      if (onSuggestionTap != null) {
+                                        onSuggestionTap!(url);
+                                      }
+                                    },
+                                    style: TextStyle(
+                                      color: isDark ? AppTheme.secondaryColor : AppTheme.primaryColor,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                  PConfig(
+                                    textStyle: AppTheme.bodyMedium.copyWith(
+                                      color: isDark ? theme.textTheme.bodyMedium?.color : Colors.black87,
+                                    ),
+                                  ),
+                                  H1Config(
+                                    style: AppTheme.headlineLarge.copyWith(
+                                      color: isDark ? theme.textTheme.headlineLarge?.color : Colors.black87,
+                                    ),
+                                  ),
+                                  H2Config(
+                                    style: AppTheme.headlineMedium.copyWith(
+                                      color: isDark ? theme.textTheme.headlineMedium?.color : Colors.black87,
+                                    ),
+                                  ),
+                                  H3Config(
+                                    style: AppTheme.headlineSmall.copyWith(
+                                      color: isDark ? theme.textTheme.headlineSmall?.color : Colors.black87,
+                                    ),
+                                  ),
+                                  CodeConfig(
+                                    style: AppTheme.bodySmall.copyWith(
+                                      fontFamily: 'monospace',
+                                      backgroundColor: isDark ? Colors.grey.shade800.withAlpha((255 * 0.5).round()) : Colors.grey.shade200,
+                                    ),
+                                  ),
+                                  PreConfig(
+                                    textStyle: AppTheme.bodySmall.copyWith(fontFamily: 'monospace'),
+                                    decoration: BoxDecoration(
+                                      color: isDark ? Colors.grey.shade800 : Colors.grey.shade200,
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color: isDark ? Colors.grey.shade700 : Colors.grey.shade300, width: 0.5)
+                                    ),
+                                    padding: const EdgeInsets.all(12.0),
+                                  ),
+                                  const BlockquoteConfig( 
+                                     // Removed textStyle and decoration due to errors. Default styling will apply.
+                                     padding: EdgeInsets.only(left: 12.0), // Padding is usually a safe bet
+                                   ),
+                                ],
                               ),
-                              onTapLink: (text, href, title) {
-                                if (href != null && onSuggestionTap != null) {
-                                  onSuggestionTap!(href);
-                                }
-                              },
                             ),
                     ),
                   ),
@@ -152,7 +167,7 @@ class ChatMessageBubble extends StatelessWidget {
             child: Text(
               _formatTimestamp(message.timestamp),
               style: AppTheme.labelSmall.copyWith(
-                color: theme.textTheme.labelSmall?.color?.withOpacity(0.5),
+                color: theme.textTheme.labelSmall?.color?.withAlpha((255 * 0.5).round()),
               ),
             ),
           ),
@@ -160,24 +175,25 @@ class ChatMessageBubble extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildErrorBubble(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       margin: const EdgeInsets.only(top: 4),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.errorColor.withOpacity(0.1),
+        // ignore: deprecated_member_use
+        color: AppTheme.errorColor.withAlpha((255 * 0.1).round()),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppTheme.errorColor.withOpacity(0.3),
+          color: AppTheme.errorColor.withAlpha((255 * 0.3).round()),
         ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
+          const Icon(
             Icons.error_outline,
             color: AppTheme.errorColor,
             size: 20,
@@ -195,11 +211,11 @@ class ChatMessageBubble extends StatelessWidget {
       ),
     );
   }
-  
+
   String _formatTimestamp(DateTime timestamp) {
     final now = DateTime.now();
     final difference = now.difference(timestamp);
-    
+
     if (difference.inDays > 0) {
       return DateFormat('MMM d, h:mm a').format(timestamp);
     } else if (difference.inHours > 0) {

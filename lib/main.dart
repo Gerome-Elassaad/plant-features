@@ -1,14 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:arco/core/theme/app_theme.dart';
-import 'package:arco/core/providers/theme_provider.dart';
-import 'package:arco/features/diagnosis/providers/diagnosis_provider.dart';
-import 'package:arco/features/assistant/providers/chat_provider.dart';
-import 'package:arco/core/services/api_service.dart';
-import 'package:arco/core/services/storage_service.dart';
-import 'package:arco/core/services/connectivity_service.dart';
-import 'package:arco/features/home/screens/home_screen.dart';
+import 'package:aspargo/core/theme/app_theme.dart';
+import 'package:aspargo/core/providers/theme_provider.dart';
+import 'package:aspargo/features/diagnosis/providers/diagnosis_provider.dart';
+import 'package:aspargo/features/assistant/providers/chat_provider.dart';
+import 'package:aspargo/core/services/api_service.dart';
+import 'package:aspargo/core/services/storage_service.dart';
+import 'package:aspargo/core/services/connectivity_service.dart';
+import 'package:aspargo/features/diagnosis/services/image_service.dart'; // Added import
+import 'package:aspargo/features/home/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,7 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   
-  runApp(const ArcoApp());
+  runApp(const AspargoApp()); // Updated runApp call
 }
 
 Future<void> _initializeServices() async {
@@ -34,10 +36,20 @@ Future<void> _initializeServices() async {
   
   // Initialize connectivity monitoring
   ConnectivityService.instance.init();
+
+  // Clear temporary image files on startup
+  try {
+    await ImageService().clearTemporaryFiles();
+  } catch (e) {
+    // Log or handle error if necessary, but don't block app startup
+    if (kDebugMode) {
+      print('Failed to clear temporary files: $e');
+    }
+  }
 }
 
-class ArcoApp extends StatelessWidget {
-  const ArcoApp({super.key});
+class AspargoApp extends StatelessWidget { // Renamed class
+  const AspargoApp({super.key}); // Renamed constructor
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +62,7 @@ class ArcoApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, _) {
           return MaterialApp(
-            title: 'Arco',
+            title: 'aspargo',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,

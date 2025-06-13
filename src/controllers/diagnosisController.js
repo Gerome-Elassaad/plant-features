@@ -18,7 +18,7 @@ const diagnosisController = {
       const options = {
         latitude: req.body.latitude ? parseFloat(req.body.latitude) : null,
         longitude: req.body.longitude ? parseFloat(req.body.longitude) : null,
-        similar_images: req.body.similar_images === 'true',
+        similar_images: req.body.similar_images || false, // Now directly use the boolean from validator
         plant_details: req.body.plant_details || ['common_names', 'url'],
         plant_language: req.body.plant_language || 'en'
       };

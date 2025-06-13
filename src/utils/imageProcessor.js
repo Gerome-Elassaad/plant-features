@@ -43,18 +43,20 @@ class ImageProcessor {
 
       // Check file size and reduce quality if needed
       let currentQuality = this.quality;
+      // Initial processedImage is already resized and JPEG encoded
+      // If it's too large, we re-encode it with lower quality
+
       while (processedImage.length > this.maxFileSize && currentQuality > 50) {
         currentQuality -= 10;
-        processedImage = await sharp(imageBuffer)
-          .resize(width, height, {
-            fit: 'inside',
-            withoutEnlargement: true
-          })
+        logger.info(`Image too large (${(processedImage.length / 1024).toFixed(2)}KB). Reducing quality to ${currentQuality}...`);
+        // Use the already resized 'processedImage' from the previous step as input,
+        // and just change the JPEG quality. No need to resize again.
+        processedImage = await sharp(processedImage) // Input is the previously processed image
           .jpeg({ quality: currentQuality, progressive: true })
           .toBuffer();
       }
 
-      logger.info(`Image processed: ${width}x${height}, size: ${(processedImage.length / 1024).toFixed(2)}KB, quality: ${currentQuality}`);
+      logger.info(`Image processed: ${width}x${height}, size: ${(processedImage.length / 1024).toFixed(2)}KB, final quality: ${currentQuality}`);
       return processedImage;
 
     } catch (error) {

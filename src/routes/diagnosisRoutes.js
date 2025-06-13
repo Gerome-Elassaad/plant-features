@@ -24,7 +24,7 @@ const upload = multer({
 const diagnosisValidation = [
   body('latitude').optional().isFloat({ min: -90, max: 90 }).withMessage('Invalid latitude'),
   body('longitude').optional().isFloat({ min: -180, max: 180 }).withMessage('Invalid longitude'),
-  body('similar_images').optional().isBoolean().withMessage('similar_images must be boolean'),
+  body('similar_images').optional().isBoolean().withMessage('similar_images must be boolean').toBoolean(),
   body('plant_details').optional().isArray().withMessage('plant_details must be an array'),
   body('plant_language').optional().isString().isLength({ min: 2, max: 5 }).withMessage('Invalid language code')
 ];

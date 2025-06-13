@@ -1,7 +1,7 @@
 {
   "name": "aspargo",
   "version": "1.0.0",
-  "description": "Backend API for Arco Plant Diagnosis and Virtual Cultivation Assistant",
+  "description": "Backend API for aspargo Plant Diagnosis and Virtual Cultivation Assistant",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

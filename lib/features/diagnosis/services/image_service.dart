@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:arco/core/exceptions/app_exceptions.dart';
+import 'package:aspargo/core/exceptions/app_execptions.dart'; // Corrected to reflect filename typo
 
 class ImageService {
   final ImagePicker _picker = ImagePicker();
@@ -109,6 +109,20 @@ class ImageService {
       }
     } catch (e) {
       // Ignore errors during cleanup
+    }
+  }
+  
+  Future<Map<String, dynamic>> getImageInfo(File file) async {
+    try {
+      final stat = await file.stat();
+      return {
+        'size': stat.size,
+        'modified': stat.modified,
+        'path': file.path,
+        'exists': await file.exists(),
+      };
+    } catch (e) {
+      throw FileException('Failed to get image info: ${e.toString()}');
     }
   }
 }
