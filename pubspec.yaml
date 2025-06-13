@@ -1,0 +1,90 @@
+name: arco
+description: Plant Diagnosis and Virtual Cultivation Assistant
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Core UI
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.1.0
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Networking
+  dio: ^5.4.0
+  dio_cache_interceptor: ^3.5.0
+  pretty_dio_logger: ^1.3.1
+  
+  # Image Handling
+  image_picker: ^1.0.5
+  flutter_image_compress: ^2.1.0
+  cached_network_image: ^3.3.0
+  photo_view: ^0.14.0
+  
+  # Permissions
+  permission_handler: ^11.1.0
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  flutter_secure_storage: ^9.0.0
+  
+  # UI Components
+  shimmer: ^3.0.0
+  flutter_spinkit: ^5.2.0
+  flutter_svg: ^2.0.9
+  lottie: ^2.7.0
+  
+  # Utilities
+  intl: ^0.18.1
+  path_provider: ^2.1.1
+  url_launcher: ^6.2.2
+  connectivity_plus: ^5.0.2
+  
+  # Chat UI
+  flutter_chat_bubble: ^2.0.2
+  flutter_markdown: ^0.6.18
+  
+  # Animations
+  animate_do: ^3.1.2
+  animations: ^2.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.7
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/animations/
+    - assets/icons/
+    
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Inter-Bold.ttf
+          weight: 700
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icons/app_icon_adaptive.png"
