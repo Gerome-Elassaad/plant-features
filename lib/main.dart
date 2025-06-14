@@ -28,28 +28,23 @@ void main() async {
 }
 
 Future<void> _initializeServices() async {
-  // Initialize storage
   await StorageService.instance.init();
   
-  // Initialize API service
   ApiService.instance.init();
   
-  // Initialize connectivity monitoring
   ConnectivityService.instance.init();
 
-  // Clear temporary image files on startup
   try {
     await ImageService().clearTemporaryFiles();
   } catch (e) {
-    // Log or handle error if necessary, but don't block app startup
     if (kDebugMode) {
       print('Failed to clear temporary files: $e');
     }
   }
 }
 
-class AspargoApp extends StatelessWidget { // Renamed class
-  const AspargoApp({super.key}); // Renamed constructor
+class AspargoApp extends StatelessWidget {
+  const AspargoApp({super.key});
 
   @override
   Widget build(BuildContext context) {

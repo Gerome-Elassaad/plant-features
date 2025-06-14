@@ -52,11 +52,8 @@ class ChatProvider extends ChangeNotifier {
   }
   
   void clearConversation() {
-    _messages.clear();
-    _suggestions.clear();
+  _messages.clear();
     _errorMessage = null;
-    _state = ChatState.idle;
-    _loadConversationStarters();
     notifyListeners();
   }
   
