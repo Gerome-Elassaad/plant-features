@@ -321,7 +321,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/aspargo.git
+git clone https://github.com/Gerome-Elassaad/plant-features.git
 cd aspargo/backend
 
 # Install dependencies
@@ -344,7 +344,7 @@ npm run dev
 <summary><b>Flutter Setup</b></summary>
 
 ```bash
-# Navigate to Flutter app
+# Example Navigate to Flutter app
 cd aspargo/flutter_app
 
 # Get dependencies
