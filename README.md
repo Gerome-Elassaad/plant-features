@@ -1,6 +1,52 @@
 # 🌱 Aspargo Project: Plant Diagnosis & Virtual Cultivation Assistant
 
-### *Technical Solution Explanation – Full Integration Plan*
+<div align="center">
+
+![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-4.0+-000000?style=for-the-badge&logo=express&logoColor=white)
+![Plant.id API](https://img.shields.io/badge/Plant.id-API-4CAF50?style=for-the-badge&logo=leaf&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Gemini-API-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Production_Ready-green?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey?style=flat-square)
+
+**Your intelligent plant care companion powered by AI**
+
+[Features](#-introduction) • [Tech Stack](#-tech-stack-selection) • [Installation](#-installation) • [API Docs](#-api-documentation) • [Read Full Docs](/documentation)
+
+</div>
+
+---
+
+## 📑 Table of Contents
+
+- [🌱 Aspargo Project: Plant Diagnosis \& Virtual Cultivation Assistant](#-aspargo-project-plant-diagnosis--virtual-cultivation-assistant)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [📋 Introduction](#-introduction)
+  - [🚀 Tech Stack Selection](#-tech-stack-selection)
+  - [🌱 Feature 1: Plant Diagnosis](#-feature-1-plant-diagnosis--full-flow--architecture)
+    - [📸 High-Level Flow](#-high-level-flow)
+    - [💡 Key Design Choices](#-key-design-choices)
+    - [🔒 Trade-offs](#-trade-offs)
+    - [📐 Backend Route Example](#-backend-route-example)
+    - [🖼️ UI Considerations](#️-ui-considerations)
+  - [🤖 Feature 2: Virtual Cultivation Assistant](#-feature-2-virtual-cultivation-assistant--full-flow--architecture)
+    - [💬 High-Level Flow](#-high-level-flow-1)
+    - [💡 Key Design Choices](#-key-design-choices-1)
+    - [🔄 Example API Endpoint](#-example-api-endpoint)
+    - [🤔 Trade-offs](#-trade-offs-1)
+    - [📐 Backend Considerations](#-backend-considerations)
+  - [🗂️ Folder Structure](#️-folder-structure)
+    - [Flutter Structure](#flutter)
+    - [Node.js Structure](#nodejs)
+  - [🔐 Security & Performance Practices](#-security--performance-practices)
+  - [🌟 Why This Approach Works](#-why-this-approach-works)
+  - [📚 Overview](#-overview)
+  - [🚀 Installation](#-installation)
+  - [📖 Full Documentation](/documentation)
 
 ---
 
@@ -8,8 +54,14 @@
 
 The purpose of this document is to **clearly explain my solution design, technology choices, and reasoning** for building the two core features requested:
 
-1. **Plant Diagnosis via Photo (Image to Plant ID + Disease Detection)**
-2. **Virtual Cultivation Assistant (AI Chatbot to Recommend and Assist)**
+## Plant Identification - Example How it works
+![plant.id](https://github.com/user-attachments/assets/a3c378ba-dd6e-4eff-a902-9a8cbc164a0b)
+
+---
+
+## Virtual Cultivation Assistant - Example How it works
+![download (4)](https://github.com/user-attachments/assets/6a36d16c-06a5-4764-9da2-8f946734de38)
+
 
 I will walk you through:
 
@@ -21,7 +73,7 @@ I will walk you through:
 
 ---
 
-# 🚀 Tech Stack Selection
+## 🚀 Tech Stack Selection
 
 | Layer               | Technology                               | Justification                                                                                                       |
 | ------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -34,9 +86,9 @@ I will walk you through:
 
 ---
 
-# 🌱 Feature 1: Plant Diagnosis – Full Flow & Architecture
+## 🌱 Feature 1: Plant Diagnosis – Full Flow & Architecture
 
-## 📸 High-Level Flow:
+### 📸 High-Level Flow:
 
 ```plaintext
 User captures/chooses plant image (Flutter)
@@ -56,7 +108,7 @@ Flutter displays detailed diagnosis result
 
 ---
 
-## 💡 Key Design Choices:
+### 💡 Key Design Choices:
 
 * **Image Compression on Device:**
   Reduces upload time and mobile bandwidth usage, important for fast user feedback.
@@ -69,7 +121,7 @@ Flutter displays detailed diagnosis result
 
 ---
 
-## 🔒 Trade-offs:
+### 🔒 Trade-offs:
 
 | Option                  | Pros                                  | Cons                             |
 | ----------------------- | ------------------------------------- | -------------------------------- |
@@ -80,7 +132,7 @@ Flutter displays detailed diagnosis result
 
 ---
 
-## 📐 Backend Route Example:
+### 📐 Backend Route Example:
 
 **Endpoint:** `POST /api/plant/diagnose`
 
@@ -101,7 +153,7 @@ Flutter displays detailed diagnosis result
 
 ---
 
-## 🖼️ UI Considerations:
+### 🖼️ UI Considerations:
 
 * Show **loading indicators** while diagnosis is processing.
 * Display **confidence score visually** (e.g., progress bar).
@@ -109,9 +161,9 @@ Flutter displays detailed diagnosis result
 
 ---
 
-# 🤖 Feature 2: Virtual Cultivation Assistant – Full Flow & Architecture
+## 🤖 Feature 2: Virtual Cultivation Assistant – Full Flow & Architecture
 
-## 💬 High-Level Flow:
+### 💬 High-Level Flow:
 
 ```plaintext
 User types plant care question (Flutter)
@@ -127,7 +179,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-## 💡 Key Design Choices:
+### 💡 Key Design Choices:
 
 * **Node.js as Chat Gateway:**
   Protects Gemini API key, allows future support for multiple AI models (e.g. Gemini + custom knowledge base).
@@ -140,7 +192,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-## 🔄 Example API Endpoint:
+### 🔄 Example API Endpoint:
 
 **Endpoint:** `POST /api/chat/message`
 
@@ -168,7 +220,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-## 🤔 Trade-offs:
+### 🤔 Trade-offs:
 
 | Option                        | Pros                                            | Cons                                           |
 | ----------------------------- | ----------------------------------------------- | ---------------------------------------------- |
@@ -179,7 +231,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-## 📐 Backend Considerations:
+### 📐 Backend Considerations:
 
 * Support request throttling to prevent API abuse.
 * Validate message length and input format.
@@ -187,7 +239,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-# 🗂️ Folder Structure
+## 🗂️ Folder Structure
 
 ### Flutter:
 
@@ -223,7 +275,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-# 🔐 Security & Performance Practices
+## 🔐 Security & Performance Practices
 
 * All API keys secured on the backend.
 * Input validation on both mobile and server side.
@@ -232,7 +284,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-# 🌟 Why This Approach Works
+## 🌟 Why This Approach Works
 
 - ✅ **Production-Ready:** Every tool and design decision is optimized for deployment, not demos.
 - ✅ **Secure:** API keys are never exposed. Inputs are validated. Rate-limiting is possible.
@@ -241,7 +293,7 @@ Flutter displays chatbot reply with multi-turn conversation
 
 ---
 
-# 📚 Overview 
+## 📚 Overview 
 
 * **Clear, practical engineering decisions.**
 * A deep understanding of **end-to-end mobile architecture.**
@@ -250,3 +302,76 @@ Flutter displays chatbot reply with multi-turn conversation
 * Implement these features in Flutter + Node.js.
 * Expand the system to handle more advanced plant data, chatbot knowledge bases, and user preference tracking.
 * Integrate fully into a larger, evolving app ecosystem.
+
+---
+
+## 🚀 Installation
+
+<details>
+<summary><b>Prerequisites</b></summary>
+
+- Flutter SDK (3.0+)
+- Node.js (18+)
+- npm or yarn
+- Plant.id API key
+- Google Gemini API key
+
+</details>
+
+<details>
+<summary><b>Backend Setup</b></summary>
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/aspargo.git
+cd aspargo/backend
+
+# Install dependencies
+npm install
+
+# Create .env file
+cp .env.example .env
+
+# Add your API keys to .env
+# PLANT_ID_API_KEY=your_plant_id_key
+# GEMINI_API_KEY=your_gemini_key
+
+# Start the server
+npm run dev
+```
+
+</details>
+
+<details>
+<summary><b>Flutter Setup</b></summary>
+
+```bash
+# Navigate to Flutter app
+cd aspargo/flutter_app
+
+# Get dependencies
+flutter pub get
+
+# Update backend URL in lib/config/api_config.dart
+
+# Run the app
+flutter run
+```
+
+</details>
+
+---
+
+## 📖 API Documentation
+
+[Read Full Docs](/documentation)
+
+### Quick Reference:
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/plant/diagnose` | POST | Upload plant image for diagnosis |
+| `/api/chat/message` | POST | Send message to cultivation assistant |
+| `/api/health` | GET | Check API status |
+
+---
