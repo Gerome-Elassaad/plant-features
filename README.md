@@ -13,8 +13,6 @@
 ![Status](https://img.shields.io/badge/Status-Production_Ready-green?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey?style=flat-square)
 
-**Your intelligent plant care companion powered by AI**
-
 [Features](#-introduction) • [Tech Stack](#-tech-stack-selection) • [Installation](#-installation) • [API Docs](#-api-documentation) • [Read Full Docs](/documentation)
 
 </div>
