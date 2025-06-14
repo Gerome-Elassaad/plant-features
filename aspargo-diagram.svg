@@ -1,0 +1,176 @@
+<svg viewBox="0 0 1200 1400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="1400" fill="#f0f9ff"/>
+  
+  <!-- Title -->
+  <text x="600" y="60" font-family="Arial, sans-serif" font-size="42" font-weight="bold" text-anchor="middle" fill="#1e40af">
+    🌿 How Aspargo Works 🌿
+  </text>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#64748b">
+    Your Personal Plant Care Assistant
+  </text>
+  
+  <!-- Feature 1: Plant Diagnosis -->
+  <g transform="translate(100, 150)">
+    <!-- Feature 1 Container -->
+    <rect x="0" y="0" width="1000" height="480" rx="20" fill="#e0f2fe" stroke="#3b82f6" stroke-width="3"/>
+    
+    <!-- Feature 1 Title -->
+    <text x="500" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#1e40af">
+      🔍 Plant Diagnosis Feature
+    </text>
+    <text x="500" y="70" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#64748b">
+      Identify plant diseases and get care instructions
+    </text>
+    
+    <!-- Step 1: Take Photo -->
+    <g transform="translate(50, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">📸</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">1. Take Photo</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Snap a picture</tspan>
+        <tspan x="100" dy="20">of your plant</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 1 -->
+    <path d="M 280 200 L 360 200" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 2: Upload -->
+    <g transform="translate(280, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">☁️</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">2. Upload</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Photo is sent</tspan>
+        <tspan x="100" dy="20">for analysis</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 2 -->
+    <path d="M 510 200 L 590 200" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 3: AI Analysis -->
+    <g transform="translate(510, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">🤖</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">3. AI Analysis</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Smart technology</tspan>
+        <tspan x="100" dy="20">identifies issues</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 3 -->
+    <path d="M 740 200 L 820 200" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 4: Results -->
+    <g transform="translate(740, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">📋</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1e40af">4. Get Results</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Receive diagnosis</tspan>
+        <tspan x="100" dy="20">&amp; care tips</tspan>
+      </text>
+    </g>
+    
+    <!-- Result Box -->
+    <rect x="50" y="320" width="900" height="140" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="70" y="350" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e40af">What you'll discover:</text>
+    <text x="90" y="380" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Plant species identification</text>
+    <text x="90" y="405" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Disease or pest problems (if any)</text>
+    <text x="90" y="430" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Personalized care instructions</text>
+    <text x="500" y="380" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Confidence score of diagnosis</text>
+    <text x="500" y="405" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Links to learn more</text>
+    <text x="500" y="430" font-family="Arial, sans-serif" font-size="16" fill="#64748b">✓ Treatment recommendations</text>
+  </g>
+  
+  <!-- Feature 2: Virtual Assistant -->
+  <g transform="translate(100, 680)">
+    <!-- Feature 2 Container -->
+    <rect x="0" y="0" width="1000" height="480" rx="20" fill="#f0fdf4" stroke="#22c55e" stroke-width="3"/>
+    
+    <!-- Feature 2 Title -->
+    <text x="500" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#15803d">
+      💬 Virtual Cultivation Assistant
+    </text>
+    <text x="500" y="70" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#64748b">
+      Get expert plant care advice through chat
+    </text>
+    
+    <!-- Step 1: Ask Question -->
+    <g transform="translate(50, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">❓</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#15803d">1. Ask Question</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Type your plant</tspan>
+        <tspan x="100" dy="20">care question</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 1 -->
+    <path d="M 280 200 L 360 200" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    
+    <!-- Step 2: AI Processes -->
+    <g transform="translate(280, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">🧠</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#15803d">2. AI Thinking</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Assistant analyzes</tspan>
+        <tspan x="100" dy="20">your question</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 2 -->
+    <path d="M 510 200 L 590 200" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    
+    <!-- Step 3: Get Answer -->
+    <g transform="translate(510, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">💡</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#15803d">3. Get Answer</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Receive expert</tspan>
+        <tspan x="100" dy="20">advice instantly</tspan>
+      </text>
+    </g>
+    
+    <!-- Arrow 3 -->
+    <path d="M 740 200 L 820 200" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    
+    <!-- Step 4: Continue Chat -->
+    <g transform="translate(740, 100)">
+      <circle cx="100" cy="100" r="80" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+      <text x="100" y="90" font-family="Arial, sans-serif" font-size="60" text-anchor="middle">🔄</text>
+      <text x="100" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#15803d">4. Keep Chatting</text>
+      <text x="100" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">
+        <tspan x="100" dy="0">Ask follow-up</tspan>
+        <tspan x="100" dy="20">questions</tspan>
+      </text>
+    </g>
+    
+    <!-- Chat Examples Box -->
+    <rect x="50" y="320" width="900" height="140" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    <text x="70" y="350" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#15803d">Example questions you can ask:</text>
+    <text x="90" y="380" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"Why are my plant's leaves turning yellow?"</text>
+    <text x="90" y="405" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"How often should I water my succulent?"</text>
+    <text x="90" y="430" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"What's the best soil for tomatoes?"</text>
+    <text x="500" y="380" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"How do I propagate my pothos?"</text>
+    <text x="500" y="405" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"When should I repot my monstera?"</text>
+    <text x="500" y="430" font-family="Arial, sans-serif" font-size="16" fill="#64748b">"What fertilizer is best for roses?"</text>
+  </g>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" fill="#3b82f6">
+      <polygon points="0 0, 10 3, 0 6"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" fill="#22c55e">
+      <polygon points="0 0, 10 3, 0 6"/>
+    </marker>
+  </defs>
+</svg>
