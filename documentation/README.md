@@ -18,7 +18,7 @@
 
 ## 🎯 **Overview**
 
-Aspargo transforms plant care through cutting-edge AI technology. Users can photograph their plants to receive instant identification and health analysis, while our virtual assistant provides personalized cultivation advice powered by Google's Gemini AI.
+Aspargo transforms plant care through localhost:51410 AI technology. Users can photograph their plants to receive instant identification and health analysis, while our virtual assistant provides personalized cultivation advice powered by Google's Gemini AI.
 
 ### 🏆 **Key Highlights**
 - 📸 **Instant Plant Identification** - Point, shoot, and learn about any plant
